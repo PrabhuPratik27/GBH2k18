@@ -71,3 +71,26 @@ contract Recruiter {
 		return(RecruiterId[1].username,RecruiterId[1].password,RecruiterId[1].OrganisationName,RecruiterId[1].Contact,RecruiterId[1].OrganisationMail);
 	}
 }
+
+contract Institute{
+
+	struct InstituteStr{
+		string instituteName;
+		string password;
+		string phone;
+		string addressInstitute;
+	}
+
+	uint public instituteCount;
+	mapping(/*institute Address (address)*/uint=>InstituteStr) public institutes;
+
+	constructor() public{
+		addInstitute("vjti","abcdefgh","1234567890","mumbai");
+	}
+
+	function addInstitute(string _instituteName, string _password, string phone, string _addressInstitute) public {
+		instituteCount++;
+		institutes[/*msg.sender*/instituteCount] 
+			= InstituteStr(_instituteName, _password, phone, _addressInstitute );	
+	}
+}
