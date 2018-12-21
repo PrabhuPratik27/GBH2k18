@@ -82,12 +82,16 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	<script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/institute.js"></script>
+
 	</head>
 	<body>
 		
-	<div class="fh5co-loader"></div>
+	<div class="fh5co-loader" id="loader"></div>
 	
-	<div id="page">
+	<div id="page" id="content">
 	<div id="new-header">
 		 <script>
 		 	$(document).ready(function(){
@@ -114,7 +118,8 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr>
+				    <div id="StudentContainer"">
+				      <!-- <tr>
 				        <td>John</td>
 				        <td>Doe</td>
 				        <td>john@example.com</td>
@@ -134,7 +139,8 @@
 				        <td>july@example.com</td>
 				        <td>9999999999</td>
 				        <td>8.99</td>
-				      </tr>
+				      </tr> -->
+				  	</div>
 				    </tbody>
 				</table>
 				</div>
