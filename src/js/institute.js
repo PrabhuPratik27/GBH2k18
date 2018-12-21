@@ -1,13 +1,13 @@
 App={
 	web3Provider: null,
 	contracts: {},
-	account: 0x0,
+	account: '0x0',
 
 	init: async function(){
 
 
 		return await App.initWeb3();
-	}
+	},
 
 	initWeb3: function() {
 
@@ -59,12 +59,11 @@ App={
   				IDMSinstance.getStudent(i).then(function (student) {
   					var type = student[0];
   					var name = student[1];
-  					var dob = student[3];
-  					var email = student[4];
-  					var phone = student[5];
-  					var institute = student[6];
-  					var marks = student[7];
-  					var isVerified = student[8];
+  					var dob = student[2];
+  					var email = student[3];
+  					var phone = student[4];
+  					var marks = student[5];
+  					var isVerified = student[6];
   				
 
   				if(isVerified == true){

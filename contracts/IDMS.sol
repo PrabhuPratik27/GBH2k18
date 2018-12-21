@@ -56,8 +56,7 @@ contract IDMS{
 
 	function addStudent(uint Type,string _name, string _password, string _dob, string _email, string _phone,address _institute, uint _marks, bool _isVerified) public {
 			studentsCount++;
-			students[studentsCount/*msg.sender*/]=
-			studentProfile(Type,_name,  _password, _dob, _email, _phone, _institute, _marks, _isVerified);
+			students[studentsCount/*msg.sender*/]=studentProfile(Type,_name,  _password, _dob, _email, _phone, _institute, _marks, _isVerified);
 			StudenttoAccount[studentsCount]=msg.sender;
 	}
 
