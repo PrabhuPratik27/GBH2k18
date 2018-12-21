@@ -22,9 +22,28 @@ contract IDMS{
 	/*student address to their account*/
 
 	/*mapping(address => studentProfile) public students;*/
-	mapping(uint => studentProfile) public students;
 
+
+	mapping( /*address*/uint =>uint) public Users;
+	uint UsersCount;
+
+
+	mapping(uint => studentProfile) public students;
 	uint public studentsCount;
+
+	
+	function SetUsers(uint _t) public {
+		UsersCount++;
+		Users[/*msg.sender*/UsersCount] = _t;
+	}
+
+
+	function GetUsers(uint/*address*/ addr) returns (/*address*/uint){
+		return(Users[addr]);
+	}
+
+
+
 
 	constructor() public {
 		
@@ -55,8 +74,10 @@ contract IDMS{
 		string OrganisationMail;
 	}
 
+
 	//address RecruiterAddress;
 	
+
 	uint public RecruiterCount;
 	mapping(/*RecruiterAddress*/uint=>Recruit) public RecruiterId;
 	
@@ -136,4 +157,14 @@ contract IDMS{
 		institutes[/*msg.sender*/instituteCount] 
 			= InstituteStr(Type,_instituteName, _password, phone, _addressInstitute );	
 	}
+
+	function SetStudentVerification(/*address*/uint sid) public {
+		students[sid].isVerified=true;	
+			/*IDMS.deployed().then(function(i){app = i;}
+
+
+
+			);*/
+	}
+
 }
