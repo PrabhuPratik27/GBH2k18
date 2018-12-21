@@ -1,13 +1,9 @@
-var Student = artifacts.require("./Student.sol");
-var Recruiter  = artifacts.require("./Recruiter.sol");
-var Institute  = artifacts.require("./Institute.sol");
+
+
+var IDMS = artifacts.require("./IDMS.sol")
 
 module.exports = function(deployer) {
-  deployer.deploy(Student);
-  deployer.deploy(Recruiter);
-  deployer.deploy(Institute);
-
-
-
+  deployer.deploy(IDMS);
+ 
 };
  
