@@ -81,13 +81,15 @@
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
+	<script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
 	</head>
 	<body>
 		
-	<div class="fh5co-loader"></div>
+	<div class="fh5co-loader" id="loader"></div>
 	
-	<div id="page">
+	<div id="page" id ="content">
 	<div id="new-header">
 		 <script>
 		 	$(document).ready(function(){
@@ -95,7 +97,6 @@
         });
         </script>
 	</div>
-	<div class="fh5co-loader"></div>
 
 	<section class="RecList">
 		
@@ -107,7 +108,7 @@
 					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" id="recruitersContainer">
 
 				<div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
     				<label class="image-checkbox">
@@ -115,14 +116,12 @@
       					<div class="desc">
       						<br>
 							<h3><a href="#">Recruiter1</a></h3>
-							<p>Short Description</p>
 						</div>
       					<input type="checkbox" name="image[]" value="" />
       					<i class="fa fa-check hidden"></i>
     				</label>
   				</div>
-
-  				<div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
+  				<!-- <div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
     				<label class="image-checkbox">
 				      	<img class="img-responsive" src="images/portfolio-2.jpg" />
 				      	<div class="desc">
@@ -146,7 +145,7 @@
 				      	<input type="checkbox" name="image[]" value="" />
 				      	<i class="fa fa-check hidden"></i>
 				    </label>
-				</div>
+				</div> -->
 			</div>
 			</div>
 
@@ -218,7 +217,7 @@
 		</div><!-- END container-wrap -->
 		
 	</section>
-
+</div>
 	<script>
 		// image gallery
 // init the state from the input

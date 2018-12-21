@@ -31,7 +31,7 @@ contract IDMS{
 	mapping(uint => studentProfile) public students;
 	uint public studentsCount;
 
-	
+
 	function SetUsers(uint _t) public {
 		UsersCount++;
 		Users[/*msg.sender*/UsersCount] = _t;
@@ -80,17 +80,18 @@ contract IDMS{
 
 	uint public RecruiterCount;
 	mapping(/*RecruiterAddress*/uint=>Recruit) public RecruiterId;
-	
+	mapping(uint => address) public RecruiterToAccount;
 	//uint public recruitersStudentsCount;
 	//mapping(uint /*recruiters (adddress)*/ => studentProfile	) recruitersStudents;
 
 	function addRecruiter(uint Type,string username,string password,string _name,uint256 _contact,string _organisationname) public{
 		RecruiterCount++;
 		RecruiterId[/*msg.sender*/RecruiterCount] = Recruit(Type,username,password,_name,_contact,_organisationname);
+		RecruiterToAccount[RecruiterCount] = msg.sender;
 	}
 
-	function getDetails() public view returns(uint,string,string,string,uint256,string){
-		return(RecruiterId[1].Type,RecruiterId[1].username,RecruiterId[1].password,RecruiterId[1].OrganisationName,RecruiterId[1].Contact,RecruiterId[1].OrganisationMail);
+	function getDetails(uint i) public view returns(uint,string,string,string,uint256,string){
+		return(RecruiterId[i].Type,RecruiterId[i].username,RecruiterId[i].password,RecruiterId[i].OrganisationName,RecruiterId[i].Contact,RecruiterId[i].OrganisationMail);
 	}
 
 	uint public recruitersStudentsCount;

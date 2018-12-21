@@ -48,17 +48,62 @@ App = {
 
       return App.render();
     });
-  }
-  // ,
+  },
   // listenForEvents: function () {
   //   App.contracts.IDMS.deployed().then(function (instance) {
       
   //   })
-  // }
+  // },
   render: function () {
     var IDMSinstance;
-    
+    var loader = $("#loader");
+    var content = $("#content");
 
+    loader.show();
+    content.hide();
+
+    //Load Account Data
+    web3.eth.getCoinbase(function (err, account) {
+      if (err == null){
+        App.account == account;
+        //TO-DO 
+      }
+    })
+
+    App.contracts.IDMS.deployed().then(function (instance) {
+      IDMSinstance = instance;
+      return IDMSinstance.RecruiterCount();
+    }).then(function(rCount){
+      var recruitersContainer = $('#recruitersContainer');
+      recruitersContainer.empty();
+
+      //Render recruiter card
+      for (var i = 1; i<= rCount; i++){
+        IDMSinstance.getDetails(i).then(function(recruiter){
+          var type = recruiter[0];
+          var username = recruiter[1];
+          var org_name = recruiter[3];
+          var contact = recruiter[4];
+          var mail = recruiter[5];
+
+          var recruiterTemplate = "<div class=\"col-xs-4 col-sm-4 col-md-4 nopad text-center\">\
+          <label class=\"image-checkbox\">\
+          <img class=\"img-responsive\" src=\"images/portfolio-1.jpg\" />\
+          <div class=\"desc\"><br>\
+          <h3>"+org_name+"</h3>"+
+          "<p>"+contact+"</p><br>"+
+          "<p>"+mail+"</p><br>"+
+          "</div><input type=\"checkbox\" name=\"image[]\" value=\"\" />"+
+          "<i class=\"fa fa-check hidden\"></i> </label> </div>";
+
+          recruitersContainer.append(recruiterTemplate);
+        });
+
+      }
+
+    });
+    loader.hide();
+    content.show();
   }
  };
 
