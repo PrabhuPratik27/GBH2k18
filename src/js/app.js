@@ -76,7 +76,7 @@ App = {
     }).then(function(rCount){
       var recruitersContainer = $('#recruitersContainer');
       recruitersContainer.empty();
-
+    
       //Render recruiter card
       for (var i = 1; i<= rCount; i++){
         IDMSinstance.getDetails(i).then(function(recruiter){
@@ -95,7 +95,6 @@ App = {
           "<p>"+mail+"</p><br>"+
           "</div><input type=\"checkbox\" name=\"image[]\" value=\"\" />"+
           "<i class=\"fa fa-check hidden\"></i> </label> </div>";
-
           recruitersContainer.append(recruiterTemplate);
         });
 

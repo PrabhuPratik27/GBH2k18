@@ -8,11 +8,10 @@ contract IDMS{
 		//string username;
 		uint Type;
 		string name;
-		string password;
+		// string password;
 		string dob;
 		string email;
 		string phone;
-		address institute;
 		uint marks;
 
 		/* verification info */
@@ -49,18 +48,18 @@ contract IDMS{
 
 	constructor() public {
 		
-		addStudent(0,"vinayak","abcdefgh","1-1-2000","abc@xyz.com","1234567890",0x0,100,false);
+		addStudent(0,"vinayak","1-1-2000","abc@xyz.com","1234567890",100,false);
 		addRecruiter(1,"my","code","Hekko",9192929299,"xyz@abc.com");
 		addInstitute(2,"vjti","abcdefgh","1234567890","mumbai");
 	}
 
-	function addStudent(uint Type,string _name, string _password, string _dob, string _email, string _phone,address _institute, uint _marks, bool _isVerified) public {
+	function addStudent(uint Type,string _name, string _dob, string _email, string _phone, uint _marks, bool _isVerified) public {
 			studentsCount++;
-			students[studentsCount/*msg.sender*/]=studentProfile(Type,_name,  _password, _dob, _email, _phone, _institute, _marks, _isVerified);
+			students[studentsCount/*msg.sender*/]=studentProfile(Type,_name, _dob, _email, _phone, _marks, _isVerified);
 			StudenttoAccount[studentsCount]=msg.sender;
 	}
 
-	function getStudent (uint i) returns(uint,string,string,string,string,uint,bool) {
+	function getStudent (uint i)public view returns(uint,string,string,string,string,uint,bool) {
 		return(students[i].Type,students[i].name,students[i].dob,students[i].email,students[i].phone,students[i].marks,students[i].isVerified);	
 	}
 	
