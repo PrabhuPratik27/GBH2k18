@@ -1,4 +1,4 @@
-var Student = artifacts.require("./Student.sol");
+/*var Student = artifacts.require("./Student.sol");
 
 contract("Student", function(accounts) {
   var electionInstance;
@@ -29,4 +29,4 @@ contract("Student", function(accounts) {
       return electionInstance.students(1);
     });
   });
-});
+});*/
