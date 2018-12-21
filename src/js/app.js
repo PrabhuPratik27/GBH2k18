@@ -40,30 +40,26 @@ App = {
   },
 
   initContract: function() {
-    $.getJSON("IDMS.json", )
-     return App.bindEvents();
-   },
+    $.getJSON("IDMS.json", function (IDMS) {
+      App.contracts.IDMS = TruffleContract(IDMS);
+      App.contracts.IDMS.setProvider(App.web3Provider);
+      
+      // App.listenForEvents();
 
-   bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
-  },
+      return App.render();
+    });
+  }
+  // ,
+  // listenForEvents: function () {
+  //   App.contracts.IDMS.deployed().then(function (instance) {
+      
+  //   })
+  // }
+  render: function () {
+    var IDMSinstance;
+    
 
-  markAdopted: function(adopters, account) {
-    /*
-     * Replace me...
-     */
-   },
-
-   handleAdopt: function(event) {
-    event.preventDefault();
-
-    var petId = parseInt($(event.target).data('id'));
-
-    /*
-     * Replace me...
-     */
-   }
-
+  }
  };
 
  $(function() {
