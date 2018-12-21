@@ -54,6 +54,8 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="css/student.css">
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -108,32 +110,30 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 text-center animate-box">
 
-					<label><a href="work-single.html" class="work"  style="background-image: url(images/portfolio-1.jpg);"></label>
-						<div class="desc">
-							<h3>Recruiter 1</h3>
-							<span>Info about the recruiter</span>
-						</div>
-					</a>
+				<div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
+    				<label class="image-checkbox">
+      					<img class="img-responsive" src="images/portfolio-1.jpg" />
+      					<input type="checkbox" name="image[]" value="" />
+      					<i class="fa fa-check hidden"></i>
+    				</label>
+  				</div>
+
+  				<div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
+    				<label class="image-checkbox">
+				      	<img class="img-responsive" src="images/portfolio-1.jpg" />
+				      	<input type="checkbox" name="image[]" value="" />
+				      	<i class="fa fa-check hidden"></i>
+				    </label>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url(images/portfolio-2.jpg);">
-						<div class="desc">
-							<h3>Recruiter 2</h3>
-							<span>Info about the recruiter</span>
-						</div>
-					</a>
+
+				<div class="col-xs-4 col-sm-4 col-md-4 nopad text-center">
+    				<label class="image-checkbox">
+				      	<img class="img-responsive" src="images/portfolio-1.jpg" />
+				      	<input type="checkbox" name="image[]" value="" />
+				      	<i class="fa fa-check hidden"></i>
+				    </label>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url(images/portfolio-3.jpg);">
-						<div class="desc">
-							<h3>Recruiter 3</h3>
-							<span>Info about the recruiter</span>
-						</div>
-					</a>
-				</div>
-			</div>
 		</div>
 		</div>
 
@@ -154,6 +154,28 @@
 		</div>
 		
 	</section>
+
+	<script>
+		// image gallery
+// init the state from the input
+$(".image-checkbox").each(function () {
+  if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
+    $(this).addClass('image-checkbox-checked');
+  }
+  else {
+    $(this).removeClass('image-checkbox-checked');
+  }
+});
+
+// sync the state to the input
+$(".image-checkbox").on("click", function (e) {
+  $(this).toggleClass('image-checkbox-checked');
+  var $checkbox = $(this).find('input[type="checkbox"]');
+  $checkbox.prop("checked",!$checkbox.prop("checked"))
+
+  e.preventDefault();
+});
+	</script>
 
 </body>
 </html>
