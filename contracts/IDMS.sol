@@ -42,3 +42,32 @@ contract Student {
 	}
 
 }
+
+contract Recruiter {
+
+	struct Recruit {
+		string username;
+		string password;
+		string OrganisationName;
+		uint256 Contact;
+		string OrganisationMail;
+	}
+
+	//address RecruiterAddress;
+	
+	uint public RecruiterCount;
+	mapping(/*RecruiterAddress*/uint=>Recruit) public RecruiterId;
+	
+	function Recruiter () {
+		addRecruiter("my","code","Hekko",9192929299,"xyz@abc.com");
+	}
+
+	function addRecruiter(string username,string password,string _name,uint256 _contact,string _organisationname) public{
+		RecruiterCount++;
+		RecruiterId[/*msg.sender*/RecruiterCount] = Recruit(username,password,_name,_contact,_organisationname);
+	}
+
+	function getDetails() public view returns(string,string,string,uint256,string){
+		return(RecruiterId[1].username,RecruiterId[1].password,RecruiterId[1].OrganisationName,RecruiterId[1].Contact,RecruiterId[1].OrganisationMail);
+	}
+}
