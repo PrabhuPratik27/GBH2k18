@@ -40,10 +40,7 @@ App = {
   },
 
   initContract: function() {
-    /*
-     * Replace me...
-     */
-
+    $.getJSON("IDMS.json", )
      return App.bindEvents();
    },
 
