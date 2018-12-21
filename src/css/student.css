@@ -17,7 +17,7 @@
 }
 
 .image-checkbox-checked {
-	border-color: #4783B0;
+	border-color: #fff;
 }
 .image-checkbox .fa {
   position: absolute;
@@ -29,4 +29,9 @@
 }
 .image-checkbox-checked .fa {
   display: block !important;
+}
+
+.img-responsive{
+	height: 20vh;
+	width: 30vw;
 }

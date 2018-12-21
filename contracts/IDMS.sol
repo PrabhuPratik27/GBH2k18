@@ -6,7 +6,6 @@ contract Student {
 		//string username;
 		string name;
 		string password;
-		uint age;
 		string dob;
 		string email;
 		string phone;
@@ -26,14 +25,14 @@ contract Student {
 
 	constructor() public {
 		studentsCount=0;
-		addStudent("vinayak","abcdefgh",12,"1-1-2000","abc@xyz.com","1234567890",0x0,100,false);
+		addStudent("vinayak","abcdefgh","1-1-2000","abc@xyz.com","1234567890",0x0,100,false);
 	}
 
-	function addStudent(string _name, string _password, uint _age, string _dob, string _email, string _phone,
+	function addStudent(string _name, string _password, string _dob, string _email, string _phone,
 			 address _institute, uint _marks, bool _isVerified) public {
 		studentsCount++;
 		students[studentsCount/*msg.sender*/]=
-			studentProfile(_name,  _password,  _age, _dob, _email, _phone, _institute, _marks, _isVerified);
+			studentProfile(_name,  _password, _dob, _email, _phone, _institute, _marks, _isVerified);
 	}
 
 	function setVerified(uint _id){
@@ -69,5 +68,28 @@ contract Recruiter {
 
 	function getDetails() public view returns(string,string,string,uint256,string){
 		return(RecruiterId[1].username,RecruiterId[1].password,RecruiterId[1].OrganisationName,RecruiterId[1].Contact,RecruiterId[1].OrganisationMail);
+	}
+}
+
+contract Institute{
+
+	struct InstituteStr{
+		string instituteName;
+		string password;
+		string phone;
+		string addressInstitute;
+	}
+
+	uint public instituteCount;
+	mapping(/*institute Address (address)*/uint=>InstituteStr) public institutes;
+
+	constructor() public{
+		addInstitute("vjti","abcdefgh","1234567890","mumbai");
+	}
+
+	function addInstitute(string _instituteName, string _password, string phone, string _addressInstitute) public {
+		instituteCount++;
+		institutes[/*msg.sender*/instituteCount] 
+			= InstituteStr(_instituteName, _password, phone, _addressInstitute );	
 	}
 }
